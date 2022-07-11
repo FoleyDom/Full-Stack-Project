@@ -4,7 +4,7 @@ const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
-let db,
+const db,
     dbConnectionString = process.env.DB_STRING,
     dbName = '',
     collection
