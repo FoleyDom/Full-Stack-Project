@@ -12,5 +12,10 @@ let db,
 MongoClient.connect(dbConnectionString).then((client) => {
 	console.log('Connected to Database')
 	db = client.db(dbName)
-	collection = db.collection('')
+	collection = db.collection('movies')
+})
+
+//PORT = 8020
+app.listen(process.env.PORT || PORT, () => {
+	console.log(`Sever is running on port = ${process.env.PORT}`)
 })
