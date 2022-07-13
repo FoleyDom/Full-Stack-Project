@@ -24,7 +24,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
 
-// app.get()
+//Get request to display different pages
+app.get('/', async (req, res) => {
+	try {
+		res.render('index.ejs')
+	} catch (error) {
+		res.status(500).send({ message: error.message })
+	}
+})
 
 //Use .listen to connect server to port
 //PORT = 8020
