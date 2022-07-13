@@ -1,3 +1,4 @@
+//Declare Variables
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -9,12 +10,21 @@ let db,
 	dbName = 'sample_mflix',
 	collection
 
+//Use .connect to conect database
 MongoClient.connect(dbConnectionString).then((client) => {
 	console.log('Connected to Database')
 	db = client.db(dbName)
 	collection = db.collection('movies')
 })
 
+//Setting middleware
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(cors())
+
+//Use .listen to connect server to port
 //PORT = 8020
 app.listen(process.env.PORT || PORT, () => {
 	console.log(`Sever is running on port = ${process.env.PORT}`)
