@@ -24,6 +24,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
 
+// app.get()
+
 //Use .listen to connect server to port
 //PORT = 8020
 app.listen(process.env.PORT || PORT, () => {
