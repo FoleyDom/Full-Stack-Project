@@ -27,7 +27,7 @@ app.use(cors())
 //Get request to display different pages
 app.get('/', async (request, response) => {
 	try {
-		response.render('index.ejs')
+		response.render('views/index.ejs')
 	} catch (error) {
 		response.status(500).send({ message: error.message })
 	}
