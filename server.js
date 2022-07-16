@@ -18,6 +18,7 @@ MongoClient.connect(dbConnectionString).then((client) => {
 })
 
 //Setting middleware
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
@@ -27,9 +28,9 @@ app.use(cors())
 //Get request to display different pages
 app.get('/', async (request, response) => {
 	try {
-		response.render('views/index.ejs')
+		response.render('index.ejs')
 	} catch (error) {
-		response.status(500).send({ message: error.message })
+		response.status(404).send({ message: error.message })
 	}
 })
 
