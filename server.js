@@ -18,7 +18,6 @@ MongoClient.connect(dbConnectionString).then((client) => {
 })
 
 //Setting middleware
-app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
